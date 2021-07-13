@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Hello IncidenciaController!{% endblock %}
+
+{% block stylesheets %}
+    {{parent() }} 
+    <link rel="stylesheet" href="css/styles.css">
+    {% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div class="main-section vh-100">
+    <div class="container-fluid vh-100">
+        <div class="row vh-100 align-items-center d-flex justify-content-center">
+            <div class="col-lg-10 col-md-10 col-sm-12 col-12 mr-auto ml-auto main-container">
+                <div class="card">
+                    <!-- Vista general de las pestaÃ±as -->
+                    <div class="card-body">
+                        <div class="tabs tabs-style-iconbox">
+                            <nav class="top-navigation">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item col-6 text-center">
+                                        <a class="icon"> 
+                                            <i class="fas fa-list"></i>
+                                            <br/>
+                                            <span>Incidencia</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item col-6 text-center">
+                                        <a class="icon"> 
+                                            <i class="fas fa-list"></i>
+                                            <br/>
+                                            <span>Grupo analisis</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="col-12">
+                                <div class="content-wrap" id="container_sections">
+                                    <section class="content-current" id="incidenciasTab">
+                                        <h3>Formulario:</h3>
+                                        {{ form_start(formulario) }}
+                                            <div class="my-custom-class-for-errors">
+                                                {{ form_errors(formulario) }}
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_row(formulario.emplazamiento, {label_attr: {class: 'radio-custom'} }) }}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_row(formulario.tipoIncidencia) }}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    {{ form_row(formulario.fechaIncidencia) }}
+                                                </div>
+                                                <div class="col-6">
+                                                    {{ form_row(formulario.turno) }}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    {{ form_row(formulario.descripcion) }}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col form-check form-switch">
+                                                    {{ form_row(formulario.isAnonimo) }}
+                                                </div>
+                                            </div>
+                                            
+                                        {{ form_end(formulario) }}
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
